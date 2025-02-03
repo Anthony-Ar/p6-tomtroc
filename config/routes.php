@@ -14,12 +14,7 @@ return [
 
     // Pages
     'app.add-books' => [
-        'path' => '/{id}',
+        'path' => '/',
         'callable' => ['App\Controller\HomeController', 'index'],
-    ],
-    'app.add-books2' => [
-        'path' => '/test',
-        'callable' => ['App\Controller\HomeController', 'index'],
-        'need_connection' => true,
     ],
 ];
