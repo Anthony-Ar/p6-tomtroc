@@ -1,0 +1,23 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+footer {
+  @include mix.flex(false, 'end');
+  height: 61px;
+  background-color: #FFFFFF;
+
+  .container {
+    @include mix.flex('end');
+  }
+
+  ul {
+    li {
+      display: inline-block;
+      margin-inline: 1rem;
+
+      a {
+        color: var.$dark-gray;
+      }
+    }
+  }
+}

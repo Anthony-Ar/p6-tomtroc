@@ -1,0 +1,44 @@
+@use '../utils/variables' as var;
+
+form {
+  .input_group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 2rem;
+
+    label {
+      color: var.$text-gray;
+    }
+
+    input[type=text], textarea, select {
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      color: var.$dark-gray;
+      background-color: #EDF2F6;
+      border: 1px solid #F0F0F0;
+      border-radius: 6px;
+      padding: 1rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  button[type=submit] {
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 22px 38px;
+    background-color: var.$main-green;
+    border: none;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: var.$dark-green;
+      cursor: pointer;
+    }
+  }
+}

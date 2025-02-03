@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  background-color: #FAF9F7;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+a.icon {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+a:hover {
+  font-weight: bold;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  flex: 1;
+  width: 100%;
+}
+main .breadcrumbs {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+main .breadcrumbs a {
+  color: #A6A6A6;
+}
+
+section h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.justify-self-center {
+  justify-self: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+form .input_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+form .input_group label {
+  color: #A6A6A6;
+}
+form .input_group input[type=text], form .input_group textarea, form .input_group select {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  color: #292929;
+  background-color: #EDF2F6;
+  border: 1px solid #F0F0F0;
+  border-radius: 6px;
+  padding: 1rem;
+}
+form .input_group input[type=text]:hover, form .input_group textarea:hover, form .input_group select:hover {
+  cursor: pointer;
+}
+form button[type=submit] {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 22px 38px;
+  background-color: #00AC66;
+  border: none;
+  border-radius: 10px;
+}
+form button[type=submit]:hover {
+  background-color: #007646;
+  cursor: pointer;
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30%;
+  padding: 0.3rem;
+  background: #292929;
+  color: #F5F3EF;
+  font-weight: 700;
+  font-size: 8.25px;
+}
+
+header {
+  display: flex;
+  background-color: #F5F3EF;
+  height: 80px;
+}
+header .container {
+  display: flex;
+  align-items: center;
+}
+header .container .links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 2rem;
+}
+header .container .links ul li {
+  display: inline-block;
+  margin-inline: 1rem;
+}
+header .container .links ul li a {
+  color: #292929;
+}
+
+footer {
+  display: flex;
+  align-items: end;
+  height: 61px;
+  background-color: #FFFFFF;
+}
+footer .container {
+  display: flex;
+  justify-content: end;
+}
+footer ul li {
+  display: inline-block;
+  margin-inline: 1rem;
+}
+footer ul li a {
+  color: #292929;
+}
+
+section.add_book form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  background: #FFF;
+  border-radius: 20px;
+  padding: 4rem;
+}
+section.add_book form .form_group {
+  justify-self: center;
+  width: 100%;
+}
+
+.error_content {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  background: #FFF;
+  border-radius: 20px;
+  padding: 4rem;
+}
+.error_content h2 {
+  font-size: 4rem;
+  color: #007646;
+}
+.error_content p.error_description {
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+/*# sourceMappingURL=main.css.map */
