@@ -1,0 +1,29 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+header {
+  display: flex;
+  background-color: var.$header-background;
+  height: 80px;
+
+  .container {
+    @include mix.flex(false, 'center');
+
+    .links {
+      @include mix.flex('space-between', 'center');
+      width: 100%;
+      margin-left: 2rem;
+
+      ul {
+        li {
+          display: inline-block;
+          margin-inline: 1rem;
+
+          a {
+            color: var.$dark-gray;
+          }
+        }
+      }
+    }
+  }
+}
