@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "sass-watch": "sass --watch  ./assets/entrypoint.scss ./public/build/styles/main.css",
+    "server": "php -S localhost:8000 -t public/"
+  }
+}
