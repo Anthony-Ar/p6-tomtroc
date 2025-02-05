@@ -5,3 +5,31 @@
 .text-align-center {
   text-align: center;
 }
+
+.fs-36 {
+  font-size: 36px;
+}
+
+.pb-5 {
+  padding-bottom: 5rem;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.enlarge-link {
+  position: relative;
+
+  a {
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+    }
+  }
+}

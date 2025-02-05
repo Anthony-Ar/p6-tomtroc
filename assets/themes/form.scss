@@ -25,20 +25,4 @@ form {
       }
     }
   }
-
-  button[type=submit] {
-    font-family: Inter, sans-serif;
-    font-weight: 600;
-    color: #FFFFFF;
-    width: 100%;
-    padding: 22px 38px;
-    background-color: var.$main-green;
-    border: none;
-    border-radius: 10px;
-
-    &:hover {
-      background-color: var.$dark-green;
-      cursor: pointer;
-    }
-  }
 }

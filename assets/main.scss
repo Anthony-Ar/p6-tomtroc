@@ -32,7 +32,6 @@ a {
 }
 
 main {
-  max-width: var.$max-width;
   margin: auto;
   flex: 1;
   width: 100%;
@@ -52,6 +51,13 @@ section {
     font-family: "Playfair Display", serif;
     font-size: 26px;
     font-weight: 400;
+  }
+
+  .section__wrapper {
+    width: 85%;
+    margin: auto;
+    padding: 5rem 0;
+    text-align: center;
   }
 }
 
