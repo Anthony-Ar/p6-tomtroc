@@ -6,15 +6,13 @@
  */
 
 return [
-    // Erreurs
-//    'app.error.404' => [
-//        'path' => '/404',
-//        'controller' => ['', '']
-//    ],
-
     // Pages
-    'app.add-books' => [
+    'app.home' => [
         'path' => '/',
-        'callable' => ['App\Controller\HomeController', 'index'],
+        'callable' => ['App\Controller\HomeController', 'showHome'],
+    ],
+    'app.add-book' => [
+        'path' => '/add-book',
+        'callable' => ['App\Controller\BookController', 'showAddBook'],
     ],
 ];

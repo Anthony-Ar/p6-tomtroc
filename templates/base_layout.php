@@ -11,7 +11,7 @@
 <?php
     require_once dirname(__DIR__) . '/templates/partials/header.php';
     require_once $file;
-    require_once dirname(__DIR__) . '/templates/partials/footer.php'
+    require_once dirname(__DIR__) . '/templates/partials/footer.php';
 ?>
 
 </body>
