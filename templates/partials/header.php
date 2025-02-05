@@ -1,13 +1,13 @@
 <header>
     <div class="container">
-        <a href="#">
+        <a href="/">
             <img src="./build/images/logo.svg" alt="TomTroc">
         </a>
         <div class="links">
             <nav>
                 <ul>
                     <li>
-                        <a href="#">Accueil</a>
+                        <a href="/">Accueil</a>
                     </li>
                     <li>
                         <a href="#">Nos livres à l'échange</a>

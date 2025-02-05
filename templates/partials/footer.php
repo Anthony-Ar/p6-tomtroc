@@ -12,12 +12,12 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/">
                     Tom Troc©
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/">
                     <img src="./build/images/logo_min.png" alt="TomTroc">
                 </a>
             </li>
