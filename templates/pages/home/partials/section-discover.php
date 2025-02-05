@@ -1,5 +1,5 @@
-<section class="home__discover">
-    <div class="container">
+<section class="home__discover colored-background">
+    <div class="section__wrapper">
         <div class="home__discover--grid">
             <div class="home__discover--text">
                 <h1>Rejoignez nos lecteurs passionnés</h1>

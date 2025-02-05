@@ -99,10 +99,26 @@ section h1 {
   font-weight: 400;
 }
 section .section__wrapper {
-  width: 85%;
+  width: 100%;
+  max-width: 910px;
   margin: auto;
   padding: 5rem 0;
   text-align: center;
+}
+section .section__cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+section.colored-background {
+  background-color: #F5F3EF;
+}
+section p.section__subtitle {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  width: 40%;
+  margin: auto auto 2.85rem;
 }
 
 .container {
@@ -125,6 +141,10 @@ section .section__wrapper {
 
 .pb-5 {
   padding-bottom: 5rem;
+}
+
+.pb-1-7 {
+  padding-bottom: 1.7rem;
 }
 
 .m-auto {
@@ -194,11 +214,34 @@ form .input_group input[type=text]:hover, form .input_group textarea:hover, form
   cursor: pointer;
 }
 
+.btn-reverse {
+  color: #00AC66;
+  background-color: transparent;
+  border: 1px solid #00AC66;
+}
+.btn-reverse:hover {
+  background-color: transparent;
+  color: #007646;
+  border-color: #007646;
+}
+
 .card__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2.7rem;
   margin-bottom: 3.5rem;
+}
+
+.card__text-only {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 3rem 1.3rem;
+  border-radius: 10px;
+}
+.card__text-only p {
+  line-height: 17px;
 }
 
 .card {
@@ -304,36 +347,68 @@ section.add_book form .form_group {
   font-size: 2rem;
 }
 
-section.home__discover {
-  background-color: #F5F3EF;
+.home__discover {
   padding: 5rem;
 }
-section.home__discover .home__discover--grid {
+.home__discover--grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-section.home__discover .home__discover--text {
-  width: 55%;
-  margin: auto;
+.home__discover--text {
+  margin: auto 0;
+  width: 70%;
+  text-align: left;
 }
-section.home__discover .home__discover--text h1 {
+.home__discover--text h1 {
   font-size: 36px;
   margin-bottom: 2rem;
+  line-height: 48px;
 }
-section.home__discover .home__discover--text p {
+.home__discover--text p {
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 5rem;
+  line-height: 20px;
 }
-section.home__discover .home__discover--cover {
-  width: 70%;
+.home__discover--cover {
+  width: 100%;
   text-align: right;
 }
-section.home__discover .home__discover--cover p {
+.home__discover--cover p {
   font-size: 12px;
   font-style: italic;
   color: #A6A6A6;
   margin-top: 1rem;
+}
+
+.our-values .section__wrapper {
+  text-align: justify;
+  max-width: 400px;
+}
+.our-values__title {
+  font-size: 32px;
+  margin-bottom: 2.1rem;
+}
+.our-values__description {
+  line-height: 20px;
+  font-weight: 300;
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+}
+.our-values__signature {
+  position: relative;
+  margin-bottom: 11rem;
+}
+.our-values__signature p {
+  margin-top: 2.1rem;
+  color: #A6A6A6;
+  font-size: 12px;
+  font-style: italic;
+}
+.our-values__signature svg {
+  position: absolute;
+  right: -50px;
+  top: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

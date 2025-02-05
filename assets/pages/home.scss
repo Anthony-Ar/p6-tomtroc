@@ -1,32 +1,34 @@
 @use '../utils/variables' as var;
 
-section.home__discover {
-  background-color: var.$header-background;
+.home__discover {
   padding: 5rem;
 
-  .home__discover--grid {
+  &--grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .home__discover--text {
-    width: 55%;
-    margin: auto;
+  &--text {
+    margin: auto 0;
+    width: 70%;
+    text-align: left;
 
     h1 {
       font-size: 36px;
       margin-bottom: 2rem;
+      line-height: 48px;
     }
 
     p {
       font-size: 16px;
       font-weight: 300;
       margin-bottom: 5rem;
+      line-height: 20px;
     }
   }
 
-  .home__discover--cover {
-    width: 70%;
+  &--cover {
+    width: 100%;
     text-align: right;
 
     p {
@@ -34,6 +36,43 @@ section.home__discover {
       font-style: italic;
       color: var.$text-gray;
       margin-top: 1rem;
+    }
+  }
+}
+
+.our-values {
+  .section__wrapper {
+    text-align: justify;
+    max-width: 400px;
+  }
+
+  &__title {
+    font-size: 32px;
+    margin-bottom: 2.1rem;
+  }
+
+  &__description {
+    line-height: 20px;
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 1.5rem;
+  }
+
+  &__signature {
+    position: relative;
+    margin-bottom: 11rem;
+
+    p {
+      margin-top: 2.1rem;
+      color: var.$text-gray;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    svg {
+      position: absolute;
+      right: -50px;
+      top: 0;
     }
   }
 }

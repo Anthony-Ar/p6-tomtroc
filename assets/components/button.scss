@@ -16,3 +16,15 @@
     cursor: pointer;
   }
 }
+
+.btn-reverse {
+  color: var.$main-green;
+  background-color: transparent;
+  border: 1px solid var.$main-green;
+
+  &:hover {
+    background-color: transparent;
+    color: var.$dark-green;
+    border-color: var.$dark-green;
+  }
+}
