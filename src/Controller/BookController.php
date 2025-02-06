@@ -11,10 +11,20 @@ use App\Repository\BookRepository;
 class BookController extends MainController
 {
     /**
+     * Affiche la page "Nos livres à l'échange"
      * @return void
      * @throws ViewNotFoundException
      */
-    public function showAddBook() : void
+    public function showBooks() {
+        $this->render('Nos livres à l\'échange', 'pages/book/books');
+    }
+
+    /**
+     * Ajoute un nouveau livre à la base de données
+     * @return void
+     * @throws ViewNotFoundException
+     */
+    public function AddBook() : void
     {
         if ($this->isSubmit()) {
             $data = $this->getRequest()->getParsedBody();

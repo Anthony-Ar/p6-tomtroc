@@ -13,6 +13,10 @@ return [
     ],
     'app.add-book' => [
         'path' => '/add-book',
-        'callable' => ['App\Controller\BookController', 'showAddBook'],
+        'callable' => ['App\Controller\BookController', 'AddBook'],
+    ],
+    'app.show-books' => [
+        'path' => '/books',
+        'callable' => ['App\Controller\BookController', 'showBooks'],
     ],
 ];

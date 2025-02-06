@@ -98,7 +98,7 @@ section h1 {
   font-size: 26px;
   font-weight: 400;
 }
-section .section__wrapper {
+section.section__wrapper, section .section__wrapper {
   width: 100%;
   max-width: 910px;
   margin: auto;
@@ -127,6 +127,32 @@ section p.section__subtitle {
   margin: auto;
 }
 
+.enlarge-link {
+  position: relative;
+}
+.enlarge-link a:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
 .justify-self-center {
   justify-self: center;
 }
@@ -149,19 +175,6 @@ section p.section__subtitle {
 
 .m-auto {
   margin: auto;
-}
-
-.enlarge-link {
-  position: relative;
-}
-.enlarge-link a:after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  content: "";
 }
 
 form .input_group {
@@ -409,6 +422,36 @@ section.add_book form .form_group {
   position: absolute;
   right: -50px;
   top: 0;
+}
+
+.books__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4.5rem;
+}
+.books__header--search {
+  background: #FFFFFF;
+  border-radius: 6px;
+  border: 1px solid #F0F0F0;
+  padding: 1rem;
+}
+.books__header--search i {
+  color: #D9D9D9;
+}
+.books__header--search input[type=text] {
+  border: 0;
+  color: #A6A6A6;
+  min-width: 250px;
+}
+.books__header--search input[type=text]:focus {
+  border: 0;
+  outline: #FFFFFF;
+  background: #FFFFFF;
+}
+.books__header--search input[type=text]::placeholder {
+  font-family: Inter, sans-serif;
+  color: #A6A6A6;
 }
 
 /*# sourceMappingURL=main.css.map */

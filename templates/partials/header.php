@@ -10,7 +10,7 @@
                         <a href="/">Accueil</a>
                     </li>
                     <li>
-                        <a href="#">Nos livres à l'échange</a>
+                        <a href="/books">Nos livres à l'échange</a>
                     </li>
                 </ul>
             </nav>
