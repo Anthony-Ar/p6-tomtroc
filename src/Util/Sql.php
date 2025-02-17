@@ -19,7 +19,7 @@ class Sql {
     private static function connection(): PDO
     {
         try {
-            $db = new PDO("mysql:host=localhost;dbname=p6-tomtroc", 'root', '');
+            $db = new PDO("mysql:host=db;dbname=p6-tomtroc", 'user', 'test');
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $db;
         }
