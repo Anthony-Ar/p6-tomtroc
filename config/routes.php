@@ -6,6 +6,16 @@
  */
 
 return [
+    // Connexion & Inscription
+    'app.registration' => [
+        'path' => '/registration',
+        'callable' => ['App\Controller\UserController', 'registration'],
+    ],
+    'app.logout' => [
+        'path' => '/logout',
+        'callable' => ['App\Controller\UserController', 'logout'],
+    ],
+
     // Pages
     'app.home' => [
         'path' => '/',
