@@ -11,6 +11,7 @@ use App\Repository\BookRepository;
 class HomeController extends MainController
 {
     /**
+     * Affiche la page d'accueil
      * @return void
      * @throws ViewNotFoundException
      */

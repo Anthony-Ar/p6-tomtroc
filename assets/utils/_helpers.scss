@@ -2,6 +2,10 @@
   justify-self: center;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
 .text-align-center {
   text-align: center;
 }
@@ -22,18 +26,10 @@
   margin: auto;
 }
 
-.enlarge-link {
-  position: relative;
+.w-100 {
+  width: 100%!important;
+}
 
-  a {
-    &:after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      content: "";
-    }
-  }
+.white {
+  background-color: #FFFFFF!important;
 }

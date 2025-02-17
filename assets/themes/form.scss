@@ -11,7 +11,7 @@ form {
       color: var.$text-gray;
     }
 
-    input[type=text], textarea, select {
+    input[type=text], input[type=password], textarea, select {
       font-family: Inter, sans-serif;
       font-size: 14px;
       color: var.$dark-gray;

@@ -10,20 +10,4 @@ $header-background: #F5F3EF;
 
 // Marges
 $max-width: 1200px;
-
-// Breakpoints
-$media-breakpoints: (
-        min: 400px,
-        mobile: 768px,
-        tablet: 1200px,
-        desktop: 1400px,
-);
-
-// Z-indexes
-$z-indexes: (
-        "footer",
-        "modal",
-        "header",
-        "elements",
-        "section"
-);
+$smaller-max-width: 910px;
