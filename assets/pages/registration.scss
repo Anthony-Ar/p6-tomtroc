@@ -1,0 +1,30 @@
+@use '../utils/variables' as var;
+
+.registration {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__form {
+    width: 50%;
+    max-width: 330px;
+    margin: 8rem auto;
+
+    form {
+      padding: 3.5rem 0;
+    }
+
+    &--login_link {
+      font-size: 16px;
+
+      a {
+        color: var.$dark-gray;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: auto;
+  }
+}
