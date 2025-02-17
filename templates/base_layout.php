@@ -10,6 +10,10 @@
 
 <?php
     require_once dirname(__DIR__) . '/templates/partials/header.php';
+    foreach (\App\Util\NoticeMessage::get() as $message) {
+         echo "<div class='notice-message {$message['type']}'><div class='container'>{$message['message']}</div></div>";
+    }
+
     require_once $file;
     require_once dirname(__DIR__) . '/templates/partials/footer.php';
 ?>
