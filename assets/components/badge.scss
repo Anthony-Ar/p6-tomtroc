@@ -1,0 +1,12 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+.badge {
+  @include mix.flex('center', 'center');
+  border-radius: 30%;
+  padding: .3rem;
+  background: var.$dark-gray;
+  color: var.$light-gray;
+  font-weight: 700;
+  font-size: 8.25px;
+}

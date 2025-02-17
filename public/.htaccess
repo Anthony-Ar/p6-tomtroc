@@ -1,0 +1,8 @@
+DirectoryIndex index.php
+
+Options +FollowSymlinks
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !=/index.php
+RewriteCond %{REQUEST_URI} !build/
+RewriteRule .* /index.php

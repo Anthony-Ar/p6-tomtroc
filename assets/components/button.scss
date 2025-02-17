@@ -1,0 +1,30 @@
+@use '../utils/variables' as var;
+
+.btn {
+  display: flex;
+  width: fit-content;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
+  padding: 22px 38px;
+  background-color: var.$main-green;
+  border: none;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var.$dark-green;
+    cursor: pointer;
+  }
+}
+
+.btn-reverse {
+  color: var.$main-green;
+  background-color: transparent;
+  border: 1px solid var.$main-green;
+
+  &:hover {
+    background-color: transparent;
+    color: var.$dark-green;
+    border-color: var.$dark-green;
+  }
+}

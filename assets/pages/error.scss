@@ -1,0 +1,19 @@
+@use '../utils/variables' as var;
+
+.error_content {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  background: #FFF;
+  border-radius: 20px;
+  padding: 4rem;
+
+  h2 {
+    font-size: 4rem;
+    color: var.$dark-green;
+  }
+
+  p.error_description {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,11 @@
+@use "sass:string";
+
+@mixin flex($justify: false, $align: false) {
+  display: flex;
+  @if $justify {
+    justify-content: string.unquote($justify);
+  }
+  @if $align {
+    align-items: string.unquote($align);
+  }
+}
