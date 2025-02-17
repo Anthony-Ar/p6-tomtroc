@@ -157,6 +157,10 @@ section p.section__subtitle {
   justify-self: center;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
 .text-align-center {
   text-align: center;
 }
@@ -177,6 +181,14 @@ section p.section__subtitle {
   margin: auto;
 }
 
+.w-100 {
+  width: 100% !important;
+}
+
+.white {
+  background-color: #FFFFFF !important;
+}
+
 form .input_group {
   display: flex;
   flex-direction: column;
@@ -186,7 +198,7 @@ form .input_group {
 form .input_group label {
   color: #A6A6A6;
 }
-form .input_group input[type=text], form .input_group textarea, form .input_group select {
+form .input_group input[type=text], form .input_group input[type=password], form .input_group textarea, form .input_group select {
   font-family: Inter, sans-serif;
   font-size: 14px;
   color: #292929;
@@ -195,7 +207,7 @@ form .input_group input[type=text], form .input_group textarea, form .input_grou
   border-radius: 6px;
   padding: 1rem;
 }
-form .input_group input[type=text]:hover, form .input_group textarea:hover, form .input_group select:hover {
+form .input_group input[type=text]:hover, form .input_group input[type=password]:hover, form .input_group textarea:hover, form .input_group select:hover {
   cursor: pointer;
 }
 
@@ -285,6 +297,33 @@ form .input_group input[type=text]:hover, form .input_group textarea:hover, form
   font-size: 10px;
   font-style: italic;
   color: #A6A6A6;
+}
+
+.notice-message {
+  padding: 1.5rem;
+  font-size: 16px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+.notice-message.success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.notice-message.info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.notice-message.warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.notice-message.error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
 }
 
 header {
@@ -452,6 +491,30 @@ section.add_book form .form_group {
 .books__header--search input[type=text]::placeholder {
   font-family: Inter, sans-serif;
   color: #A6A6A6;
+}
+
+.registration {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.registration__form {
+  width: 50%;
+  max-width: 330px;
+  margin: 8rem auto;
+}
+.registration__form form {
+  padding: 3.5rem 0;
+}
+.registration__form--login_link {
+  font-size: 16px;
+}
+.registration__form--login_link a {
+  color: #292929;
+  text-decoration: underline;
+}
+.registration img {
+  width: 100%;
+  aspect-ratio: auto;
 }
 
 /*# sourceMappingURL=main.css.map */

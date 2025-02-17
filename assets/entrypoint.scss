@@ -8,6 +8,7 @@
 @use 'components/badge';
 @use 'components/button';
 @use 'components/card';
+@use 'components/notice-message';
 
 @use 'layouts/header';
 @use 'layouts/footer';
@@ -16,3 +17,4 @@
 @use 'pages/error';
 @use 'pages/home';
 @use 'pages/books';
+@use 'pages/registration';

@@ -2,6 +2,10 @@
   justify-self: center;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
 .text-align-center {
   text-align: center;
 }
@@ -20,4 +24,12 @@
 
 .m-auto {
   margin: auto;
+}
+
+.w-100 {
+  width: 100%!important;
+}
+
+.white {
+  background-color: #FFFFFF!important;
 }
