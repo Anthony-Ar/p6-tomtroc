@@ -1,9 +1,11 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace App\Entity;
 
-class Book {
+class Book extends MainEntity
+{
     public int $id;
     public string $title;
     public string $author;

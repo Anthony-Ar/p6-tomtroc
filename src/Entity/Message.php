@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Entity;
 
 use DateTime;
 
-class Message
+class Message extends MainEntity
 {
     public int $id;
     public int $ownerId;
