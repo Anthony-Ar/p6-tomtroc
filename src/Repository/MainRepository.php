@@ -9,11 +9,8 @@ use PDO;
 
 abstract class MainRepository extends Sql
 {
-    protected string $table;
-
-    public function __construct(string $table)
+    public function __construct(protected string $table)
     {
-        $this->table = $table;
     }
 
     /**
