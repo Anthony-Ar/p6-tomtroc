@@ -21,7 +21,7 @@
                 </div>
             </form>
 
-            <p class="registration__form--login_link">Déja inscrit ? <a href="#">Connectez-vous</a></p>
+            <p class="registration__form--login_link">Déja inscrit ? <a href="/login">Connectez-vous</a></p>
         </div>
         <img src="build/images/marialaura-gionfriddo-50G3FvyQxX0-unsplash.png" alt="Marialaura Gionfriddo">
     </section>
