@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\User;
 use App\Util\Sql;
+use PDO;
 
 class UserRepository extends MainRepository
 {
@@ -32,5 +33,25 @@ class UserRepository extends MainRepository
 
         $query->execute();
         return Sql::bdd()->lastInsertId();
+    }
+
+    /**
+     * Récupère une seule entrée en fonction d'un email
+     * @param string $email
+     * @return User|null
+     */
+    public function findOneByEmail(string $email) : ?User
+    {
+        $query = Sql::bdd()->prepare("SELECT * FROM {$this->table} WHERE email = :email LIMIT 1");
+        $query->bindParam(':email', $email);
+        $query->execute();
+
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+
+        if($user) {
+            return new User($user);
+        }
+
+        return null;
     }
 }

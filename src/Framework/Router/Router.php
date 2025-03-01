@@ -9,7 +9,7 @@ use App\Framework\Exception\RouterException\ClassNotFoundException;
 use App\Framework\Exception\RouterException\RouteNotFoundException;
 use App\Framework\Exception\RouterException\RouterBadRequestException;
 use App\Framework\Http\Uri;
-use App\Util\ConnectionChecker;
+use App\Service\ConnectionChecker;
 use ReflectionException;
 
 class Router

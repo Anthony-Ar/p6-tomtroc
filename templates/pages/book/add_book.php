@@ -39,7 +39,7 @@ J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été ench
                             <option value="1">Indisponible</option>
                         </select>
                     </div>
-                    <button type="submit" id="submit" name="submit" class="btn">Valider</button>
+                    <button type="submit" id="add-book-submit" name="add-book-submit" class="btn">Valider</button>
                 </div>
             </form>
         </section>

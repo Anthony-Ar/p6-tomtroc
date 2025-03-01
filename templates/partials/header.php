@@ -16,7 +16,7 @@
             </nav>
             <div class="user_menu">
                 <ul>
-                    <?php if(\App\Util\ConnectionChecker::isConnected()) { ?>
+                    <?php if(\App\Service\ConnectionChecker::isConnected()) { ?>
                     <li>
                         <a href="#" class="icon">
                             <i class="fa-regular fa-comment"></i>
@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/login">
                             Connexion
                         </a>
                     </li>

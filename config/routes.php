@@ -11,9 +11,14 @@ return [
         'path' => '/registration',
         'callable' => ['App\Controller\UserController', 'registration'],
     ],
+    'app.login' => [
+        'path' => '/login',
+        'callable' => ['App\Controller\UserController', 'login'],
+    ],
     'app.logout' => [
         'path' => '/logout',
         'callable' => ['App\Controller\UserController', 'logout'],
+        'need_connection' => true
     ],
 
     // Pages
@@ -23,7 +28,8 @@ return [
     ],
     'app.add-book' => [
         'path' => '/add-book',
-        'callable' => ['App\Controller\BookController', 'AddBook'],
+        'callable' => ['App\Controller\BookController', 'addBook'],
+        'need_connection' => true
     ],
     'app.show-books' => [
         'path' => '/books',

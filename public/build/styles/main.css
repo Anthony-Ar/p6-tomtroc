@@ -325,6 +325,10 @@ form .input_group input[type=text]:hover, form .input_group input[type=password]
   background-color: #f2dede;
   border-color: #ebccd1;
 }
+.notice-message .notice-title {
+  font-weight: bold;
+  margin-right: 1rem;
+}
 
 header {
   display: flex;
