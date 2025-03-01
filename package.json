@@ -2,6 +2,5 @@
   "scripts": {
     "sass-watch": "sass --watch  ./assets/entrypoint.scss ./public/build/styles/main.css",
     "server": "php -S localhost:8000 -t public/",
-    "sonar-scanner": "sonar-scanner.bat -D\"sonar.projectKey=p6-tomtroc\" -D\"sonar.sources=./src\" -D\"sonar.host.url=http://localhost:9090\" -D\"sonar.token=sqp_aca6d44eed76b812f984984c238101e92228f34a\""
   }
 }
