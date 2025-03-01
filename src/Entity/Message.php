@@ -8,9 +8,9 @@ use DateTime;
 
 class Message extends MainEntity
 {
-    public int $id;
-    public int $ownerId;
-    public int $receiverId;
+    public int      $id;
+    public int      $ownerId;
+    public int      $receiverId;
     public DateTime $date;
-    public string $content;
+    public string   $content;
 }
