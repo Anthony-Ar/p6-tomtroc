@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Framework\Exception\ViewNotFoundException;
 use App\Framework\Http\Interface\RequestInterface;
 use App\Framework\View\View;
+use App\Util\NoticeMessage;
 
 abstract class MainController
 {
@@ -24,18 +25,49 @@ abstract class MainController
         $view->render($path, $parameters);
     }
 
+    /**
+     * @param RequestInterface $request
+     * @return void
+     */
     public static function setRequest(RequestInterface $request) : void
     {
         self::$request = $request;
     }
 
+    /**
+     * @return RequestInterface
+     */
     protected function getRequest() : RequestInterface
     {
         return self::$request;
     }
 
-    protected function isSubmit() : bool
+    /**
+     * @param string $submit
+     * @return bool
+     */
+    protected function isSubmit(string $submit) : bool
     {
-        return $this->getRequest()->getMethod() === 'POST';
+        return $this->getRequest()->getMethod() === 'POST' && isset($this->getRequest()->getParsedBody()[$submit]);
+    }
+
+    /**
+     * @param string $type
+     * @param string $title
+     * @param string $message
+     * @return void
+     */
+    protected function addMessage(string $type, string $title, string $message) : void
+    {
+        NoticeMessage::add(
+            $type,
+            $title,
+            $message
+        );
+    }
+
+    protected function locate(string $uri) : void
+    {
+        header('location: '. $uri);
     }
 }

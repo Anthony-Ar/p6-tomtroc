@@ -1,7 +1,7 @@
 services:
-  www:
+  php-apache:
     build:
-      target: www_dev
+      target: php-apache
       context: .
     ports:
       - "8001:80"
@@ -9,10 +9,13 @@ services:
       - ./:/var/www/
       - ./public:/var/www/html
     links:
-      - db
+      - mysql
     networks:
       - default
-  db:
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  mysql:
     image: mysql
     ports:
       - "3306:3306"
@@ -26,15 +29,17 @@ services:
       - persistent:/var/lib/mysql
     networks:
       - default
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
-      - db:db
+      - mysql
     ports:
       - 8000:80
     environment:
       MYSQL_USER: user
       MYSQL_PASSWORD: test
       MYSQL_ROOT_PASSWORD: test
+
 volumes:
   persistent:

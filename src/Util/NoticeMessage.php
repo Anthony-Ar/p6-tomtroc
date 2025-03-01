@@ -7,14 +7,15 @@ class NoticeMessage
     /**
      * Ajoute un message (alerts) à la file d'attente
      * @param string $type
+     * @param string $title
      * @param string $message
      * @return void
      */
-    public static function add(string $type, string $message): void {
+    public static function add(string $type, string $title, string $message): void {
         if (!isset($_SESSION['messages'])) {
             $_SESSION['messages'] = [];
         }
-        $_SESSION['messages'][] = ['type' => $type, 'message' => $message];
+        $_SESSION['messages'][] = ['type' => $type, 'title' => $title, 'message' => $message];
     }
 
     /**

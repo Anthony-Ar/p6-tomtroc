@@ -11,7 +11,12 @@
 <?php
     require_once dirname(__DIR__) . '/templates/partials/header.php';
     foreach (\App\Util\NoticeMessage::get() as $message) {
-         echo "<div class='notice-message {$message['type']}'><div class='container'>{$message['message']}</div></div>";
+         echo "<div class='notice-message {$message['type']}'><div class='container'>";
+
+        !empty(trim($message['title'])) && print "<span class='notice-title'>{$message['title']}</span>";
+        !empty(trim($message['message'])) && print "{$message['message']}";
+
+         echo "</div></div>";
     }
 
     require_once $file;

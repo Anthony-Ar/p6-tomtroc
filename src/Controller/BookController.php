@@ -24,9 +24,9 @@ class BookController extends MainController
      * @return void
      * @throws ViewNotFoundException
      */
-    public function AddBook() : void
+    public function addBook() : void
     {
-        if ($this->isSubmit()) {
+        if ($this->isSubmit('add-book-submit')) {
             $data = $this->getRequest()->getParsedBody();
 
             $book = new Book();
