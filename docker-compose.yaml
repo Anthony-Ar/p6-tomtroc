@@ -35,7 +35,7 @@ services:
     links:
       - mysql
     ports:
-      - 8000:80
+      - "8000:80"
     environment:
       MYSQL_USER: user
       MYSQL_PASSWORD: test
