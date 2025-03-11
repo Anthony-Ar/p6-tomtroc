@@ -2,13 +2,53 @@
 
 .profil {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   gap: 2rem;
   margin: 7rem auto;
+
+  table {
+    border-collapse: collapse;
+    font-size: 12px;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+
+    td {
+      padding: 1.85rem 4.7rem;
+      vertical-align: middle;
+
+      .description {
+        font-style: italic;
+      }
+
+      img {
+        width: 78px;
+        height: 78px;
+      }
+    }
+
+    th {
+      color: var.$dark-gray;
+      font-size: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-bottom: 1px solid var.$light-gray;
+      padding: 2.3rem 0 .5rem;
+    }
+
+    tr:nth-child(even) {
+      background-color: #EDF2F6;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #FFFFFF;
+    }
+  }
 
   &__tab {
     background-color: #FFFFFF;
     border-radius: 20px;
+    width: 340px;
 
     &--wrapper {
       display: flex;

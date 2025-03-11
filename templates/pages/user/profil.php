@@ -1,8 +1,8 @@
 <main class="container">
     <section class="profil">
-        <div class="profil__tab">
+        <div class="profil__tab left-tab">
             <div class="profil__tab--wrapper">
-                <img src="/build/images/avatar/avatar.png" alt="Avatar de <?= $user['username'] ?>"/>
+                <img src="<?= $user['avatar'] ?>" alt="Avatar de <?= $user['username'] ?>"/>
                 <hr/>
                 <div class="profil__tab--infos">
                     <p class="username"><?= $user['username'] ?></p>
@@ -17,8 +17,41 @@
             </div>
         </div>
 
-        <div class="profil__tab">
-            test2
-        </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><img src="/build/images/book-cover/cover2.png" alt="1"></td>
+                    <td>The Kinkfolk Table</td>
+                    <td>Nathan Williams</td>
+                    <td class="description">J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté p...</td>
+                </tr>
+                <tr>
+                    <td><img src="/build/images/book-cover/cover2.png" alt="1"></td>
+                    <td>The Kinkfolk Table</td>
+                    <td>Nathan Williams</td>
+                    <td class="description">J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté p...</td>
+                </tr>
+                <tr>
+                    <td><img src="/build/images/book-cover/cover2.png" alt="1"></td>
+                    <td>The Kinkfolk Table</td>
+                    <td>Nathan Williams</td>
+                    <td class="description">J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté p...</td>
+                </tr>
+                <tr>
+                    <td><img src="/build/images/book-cover/cover2.png" alt="1"></td>
+                    <td>The Kinkfolk Table</td>
+                    <td>Nathan Williams</td>
+                    <td class="description">J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté p...</td>
+                </tr>
+                </tbody>
+            </table>
     </section>
 </main>
