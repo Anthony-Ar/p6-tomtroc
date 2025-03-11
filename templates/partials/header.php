@@ -1,7 +1,7 @@
 <header>
     <div class="container">
         <a href="/">
-            <img src="./build/images/logo.svg" alt="TomTroc">
+            <img src="/build/images/logo.svg" alt="TomTroc">
         </a>
         <div class="links">
             <nav>
