@@ -541,6 +541,9 @@ section.add_book form .form_group {
 .profil table td .description {
   font-style: italic;
 }
+.profil table td a {
+  color: #000000;
+}
 .profil table td img {
   width: 78px;
   height: 78px;
