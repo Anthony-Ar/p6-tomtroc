@@ -8,10 +8,10 @@ use DateTime;
 
 class User extends MainEntity
 {
-    public int      $id;
-    public string   $username;
-    public string   $email;
-    public string   $password;
-    public DateTime $inscriptionDate;
-    public string   $avatar;
+    public int             $id;
+    public string          $username;
+    public string          $email;
+    public string          $password;
+    public string|DateTime $inscriptionDate;
+    public string          $avatar;
 }
