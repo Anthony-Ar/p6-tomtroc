@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Exception\UserNotFoundException;
 use App\Framework\Exception\ViewNotFoundException;
+use App\Repository\BookRepository;
 use App\Repository\UserRepository;
 use App\Service\SessionManager;
 
@@ -89,10 +90,15 @@ class UserController extends MainController
             throw new UserNotFoundException('Impossible de trouver l\'utilisateur recherché');
         }
 
+        $books = new BookRepository()->findBy(['ownerId', $id], true, 'createdAt DESC');
+
         $this->render(
             sprintf('Profil de %s', $user['username']),
             'pages/user/profil',
-            ['user' => $user]
+            [
+                'user' => $user,
+                'books' => $books,
+            ]
         );
     }
 
