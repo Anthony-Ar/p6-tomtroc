@@ -32,8 +32,8 @@
             <?php
             if (count($books) === 0) { ?>
                 <tr>
-                    <td colspan="4" class="text-align-center">Cet utilisateur ne possède pas encore de livres dans sa
-                        collection personnelle.
+                    <td colspan="4" class="text-align-center">
+                        Cet utilisateur ne possède pas encore de livres dans sa collection personnelle.
                     </td>
                 </tr>
             <?php
