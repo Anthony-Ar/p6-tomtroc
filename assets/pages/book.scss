@@ -73,6 +73,10 @@
         height: 48px;
         border-radius: 50%;
       }
+
+      a, a:visited {
+        color: var.$dark-gray;
+      }
     }
   }
 }

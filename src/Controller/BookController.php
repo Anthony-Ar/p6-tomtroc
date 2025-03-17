@@ -12,15 +12,16 @@ use App\Repository\BookRepository;
 class BookController extends MainController
 {
     /**
-     * Affiche le détails d'un livre
+     * Affiche les détails d'un livre
      * @return void
      * @throws ViewNotFoundException
      * @throws BookNotFoundException
      */
-    public function showBook(int $id) {
+    public function showBook(int $id)
+    {
         $book = new BookRepository()->findOne($id);
 
-        if(!$book) {
+        if (!$book) {
             throw new BookNotFoundException('Impossible de trouver le livre correspondant.');
         }
 

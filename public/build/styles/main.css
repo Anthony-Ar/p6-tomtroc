@@ -79,9 +79,6 @@ a.icon {
 a:hover {
   font-weight: bold;
 }
-a:visited {
-  color: #000;
-}
 
 main {
   margin: auto;
@@ -569,6 +566,9 @@ section.add_book form .form_group {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+}
+.show-book__details--user a, .show-book__details--user a:visited {
+  color: #292929;
 }
 
 .registration {
