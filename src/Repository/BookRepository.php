@@ -6,12 +6,32 @@ namespace App\Repository;
 
 use App\Entity\Book;
 use App\Util\Sql;
+use PDO;
 
 class BookRepository extends MainRepository
 {
     public function __construct()
     {
         parent::__construct('book');
+    }
+
+    /**
+     * Surcharge de la fonction parente findOne() afin d'y associer
+     * par jointure les détails sur le propriétaire du livre
+     * @param int $id
+     * @return array|bool
+     */
+    public function findOne(int $id) : array|bool
+    {
+        $query = Sql::bdd()->prepare("
+            SELECT book.*, user.username AS username, user.avatar AS avatar
+            FROM {$this->table}
+            INNER JOIN user ON book.ownerId = user.id
+            WHERE book.id = :id
+        ");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
