@@ -101,7 +101,7 @@ section h1 {
 section.section__wrapper, section .section__wrapper {
   width: 100%;
   max-width: 910px;
-  margin: auto;
+  margin: 0 auto;
   padding: 5rem 0;
   text-align: center;
 }
@@ -279,6 +279,9 @@ form .input_group input[type=text]:hover, form .input_group input[type=password]
 }
 .card img {
   aspect-ratio: auto;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
 }
 .card__content {
   background: #FFFFFF;

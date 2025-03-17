@@ -36,7 +36,16 @@ class BookController extends MainController
      */
     public function showBooks() : void
     {
-        $this->render('Nos livres à l\'échange', 'pages/book/books');
+        $books = new BookRepository();
+
+        if ($this->isSubmit('search')) {
+            $data = $this->getRequest()->getParsedBody();
+            $books = $books->findBy(['title', $data['search']], false);
+        } else {
+            $books = $books->findAll('createdAt DESC');
+        }
+
+        $this->render('Nos livres à l\'échange', 'pages/book/books', ['books' => $books]);
     }
 
     /**

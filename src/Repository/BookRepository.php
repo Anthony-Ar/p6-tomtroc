@@ -58,6 +58,37 @@ class BookRepository extends MainRepository
     }
 
     /**
+     * Surcharge de la fonction parente findBy() afin d'y associer
+     *  par jointure les détails sur le propriétaire du livre
+     * @param array $where
+     * @param bool $strict
+     * @param string|null $orderBy
+     * @param string|null $limit
+     * @return array|null
+     */
+    public function findBy(
+        array $where,
+        bool $strict = true,
+        ?string $orderBy = 'ID DESC',
+        ?string $limit = null
+    ) : array|null {
+        $queryOrderBy = $orderBy !== null ? 'ORDER BY ' . $orderBy : '';
+        $queryLimit = $limit !== null ? 'LIMIT ' . $limit : '';
+        $queryWhere = $strict ? 'WHERE ' . $where[0] . ' = "' . $where[1]. '"' : 'WHERE ' . $where[0] . ' LIKE "%' . $where[1] . '%"';
+
+        $query = Sql::bdd()->prepare("
+            SELECT book.*, user.username AS username
+            FROM {$this->table}
+            INNER JOIN user ON book.ownerId = user.id
+            {$queryWhere}
+            {$queryOrderBy}
+            {$queryLimit}
+        ");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
      * Ajoute un nouveau livre à la base de données
      * @param Book $book
      * @return bool

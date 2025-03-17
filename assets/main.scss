@@ -56,7 +56,7 @@ section {
   &.section__wrapper, .section__wrapper {
     width: 100%;
     max-width: var.$smaller-max-width;
-    margin: auto;
+    margin: 0 auto;
     padding: 5rem 0;
     text-align: center;
   }
