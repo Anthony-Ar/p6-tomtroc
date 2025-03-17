@@ -16,10 +16,10 @@ abstract class MainRepository extends Sql
     /**
      * Récupère toutes les entrées d'une table
      * @param string|null $orderBy
-     * @param string|null $limit
+     * @param int|null $limit
      * @return array|null
      */
-    public function findAll(?string $orderBy = 'ID DESC', ?string $limit = null) : array|null
+    public function findAll(?string $orderBy = 'ID DESC', ?int $limit = null) : array|null
     {
         $queryOrderBy = $orderBy !== null ? 'ORDER BY ' . $orderBy : '';
         $queryLimit = $limit !== null ? 'LIMIT ' . $limit : '';
