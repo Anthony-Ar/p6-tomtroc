@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Controller;
 
-use App\Entity\Book;
 use App\Framework\Exception\ViewNotFoundException;
 use App\Repository\BookRepository;
 
@@ -17,9 +16,12 @@ class HomeController extends MainController
      */
     public function showHome() : void
     {
+        $books = new BookRepository()->findAll('createdAt DESC', 4);
+
         $this->render(
             'Accueil',
             'pages/home/home',
+            ['books' => $books]
         );
     }
 }
