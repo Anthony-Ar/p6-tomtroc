@@ -79,6 +79,9 @@ a.icon {
 a:hover {
   font-weight: bold;
 }
+a:visited {
+  color: #000;
+}
 
 main {
   margin: auto;
@@ -138,6 +141,10 @@ section p.section__subtitle {
   left: 0;
   z-index: 1;
   content: "";
+}
+
+.bg-header {
+  background-color: #F5F3EF;
 }
 
 .sr-only {
@@ -495,6 +502,73 @@ section.add_book form .form_group {
 .books__header--search input[type=text]::placeholder {
   font-family: Inter, sans-serif;
   color: #A6A6A6;
+}
+
+.book-breadcrumbs {
+  font-size: 10px;
+  color: #A6A6A6;
+  font-weight: 300;
+  margin: 1.15rem auto;
+}
+
+.show-book {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+}
+.show-book img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.show-book hr {
+  width: 27px;
+  height: 1px;
+  border: 0;
+  margin-left: 0;
+  background-color: #A6A6A6;
+}
+.show-book__details h1 {
+  margin-top: 4.2rem;
+}
+.show-book__details .btn {
+  max-width: 485px;
+  margin-top: 5.7rem;
+  padding: 22px 0;
+}
+.show-book__details--author {
+  font-size: 16px;
+  color: #A6A6A6;
+  margin-top: 1.15rem;
+  margin-bottom: 2.3rem;
+}
+.show-book__details--subtitle {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.64px;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.show-book__details--description {
+  max-width: 485px;
+  color: #292929;
+  text-align: justify;
+}
+.show-book__details--user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 0.4rem 1.2rem 0.4rem 0.4rem;
+  width: fit-content;
+  border-radius: 8.1rem;
+  gap: 1.2rem;
+}
+.show-book__details--user img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
 
 .registration {

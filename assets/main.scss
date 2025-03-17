@@ -29,6 +29,10 @@ a {
   &:hover {
     font-weight: bold;
   }
+
+  &:visited {
+    color: #000;
+  }
 }
 
 main {
@@ -100,6 +104,10 @@ section {
       content: "";
     }
   }
+}
+
+.bg-header {
+  background-color: var.$light-gray;
 }
 
 .sr-only {

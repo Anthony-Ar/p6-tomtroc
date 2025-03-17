@@ -1,0 +1,78 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+.book-breadcrumbs {
+  font-size: 10px;
+  color: var.$text-gray;
+  font-weight: 300;
+  margin: 1.15rem auto;
+}
+
+.show-book {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+  // je t'aime
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  hr {
+    width: 27px;
+    height: 1px;
+    border: 0;
+    margin-left: 0;
+    background-color: var.$text-gray;
+  }
+
+  &__details {
+    h1 {
+      margin-top: 4.2rem;
+    }
+
+    .btn {
+      max-width: 485px;
+      margin-top: 5.7rem;
+      padding: 22px 0;
+    }
+
+    &--author {
+      font-size: 16px;
+      color: var.$text-gray;
+      margin-top: 1.15rem;
+      margin-bottom: 2.3rem;
+    }
+
+    &--subtitle {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: calc(8px * 0.08);
+      text-transform: uppercase;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    &--description {
+      max-width: 485px;
+      color: var.$dark-gray;
+      text-align: justify;
+    }
+
+    &--user {
+      @include mix.flex('center', 'center');
+      background-color: #FFFFFF;
+      padding: .4rem 1.2rem .4rem .4rem;
+      width: fit-content;
+      border-radius: 8.1rem;
+      gap: 1.2rem;
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
