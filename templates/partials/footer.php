@@ -18,7 +18,7 @@
             </li>
             <li>
                 <a href="/">
-                    <img src="./build/images/logo_min.png" alt="TomTroc">
+                    <img src="/build/images/logo_min.png" alt="TomTroc">
                 </a>
             </li>
         </ul>

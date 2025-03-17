@@ -30,6 +30,29 @@ abstract class MainRepository extends Sql
     }
 
     /**
+     * Recherche toutes les entrées selon un critère de sélection
+     * @param array $where
+     * @param bool $strict
+     * @param string|null $orderBy
+     * @param string|null $limit
+     * @return array|null
+     */
+    public function findBy(
+        array $where,
+        bool $strict = true,
+        ?string $orderBy = 'ID DESC',
+        ?string $limit = null
+    ) : array|null {
+        $queryOrderBy = $orderBy !== null ? 'ORDER BY ' . $orderBy : '';
+        $queryLimit = $limit !== null ? 'LIMIT ' . $limit : '';
+        $queryWhere = $strict ? 'WHERE ' . $where[0] . ' = "' . $where[1]. '"' : 'WHERE ' . $where[0] . ' LIKE "%' . $where[1] . '%"';
+
+        $query = Sql::bdd()->prepare("SELECT * FROM {$this->table} {$queryWhere} {$queryOrderBy} {$queryLimit}");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
      * Récupère une seule entrée en fonction d'un ID
      * @param int $id
      * @return array|bool
