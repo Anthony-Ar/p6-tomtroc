@@ -20,6 +20,12 @@
                         <p class="card__content--description"><?= $book['author'] ?></p>
                         <p class="card__content--seller">Vendu par : <?= $book['username'] ?></p>
                     </div>
+                    <?php
+                    if (!$book['state']) { ?>
+                        <div class="label label-red">
+                            non dispo.
+                        </div>
+                    <?php } ?>
                 </article>
                 <?php
             }
