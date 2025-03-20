@@ -7,7 +7,6 @@
             <label for="search" class="sr-only">Rechercher un livre</label>
             <input type="text" name="search" id="search" placeholder="Rechercher un livre">
         </form>
-
     </div>
     <div class="card__grid">
         <?php
