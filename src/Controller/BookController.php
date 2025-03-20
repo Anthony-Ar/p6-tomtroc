@@ -42,7 +42,7 @@ class BookController extends MainController
             $data = $this->getRequest()->getParsedBody();
             $books = $books->findBy(['title', $data['search']], false);
         } else {
-            $books = $books->findAll('createdAt DESC');
+            $books = $books->findAll('createdAt ASC');
         }
 
         $this->render('Nos livres à l\'échange', 'pages/book/books', ['books' => $books]);
