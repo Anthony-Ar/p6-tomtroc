@@ -351,6 +351,7 @@ form .input_group input[type=text]:hover, form .input_group input[type=password]
   font-size: 8.88px;
   font-weight: 500;
   color: #FFFFFF;
+  white-space: nowrap;
 }
 .label.label-red {
   background-color: #C56D6D;
@@ -620,34 +621,34 @@ section.add_book form .form_group {
   aspect-ratio: auto;
 }
 
-.profil {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 2rem;
-  margin: 7rem auto;
-}
-.profil table {
+table.books-list {
   border-collapse: collapse;
   font-size: 12px;
   border-radius: 20px;
   overflow: hidden;
-  width: 100%;
+  display: block;
 }
-.profil table td {
+table.books-list td {
   padding: 1.85rem 4.7rem;
   vertical-align: middle;
 }
-.profil table td .description {
+table.books-list td .description {
   font-style: italic;
 }
-.profil table td a {
+table.books-list td a {
   color: #000000;
 }
-.profil table td img {
+table.books-list td img {
   width: 78px;
   height: 78px;
 }
-.profil table th {
+table.books-list td.actions {
+  white-space: nowrap;
+}
+table.books-list td.actions a {
+  margin-right: 2rem;
+}
+table.books-list th {
   color: #292929;
   font-size: 8px;
   font-weight: 600;
@@ -655,11 +656,18 @@ section.add_book form .form_group {
   border-bottom: 1px solid #F5F3EF;
   padding: 2.3rem 0 0.5rem;
 }
-.profil table tr:nth-child(even) {
+table.books-list tr:nth-child(even) {
   background-color: #EDF2F6;
 }
-.profil table tr:nth-child(odd) {
+table.books-list tr:nth-child(odd) {
   background-color: #FFFFFF;
+}
+
+.profil {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  margin: 7rem auto;
 }
 .profil__tab {
   background-color: #FFFFFF;
@@ -705,6 +713,38 @@ section.add_book form .form_group {
   letter-spacing: 0.64px;
   color: #292929;
   margin-bottom: 0.4rem;
+}
+
+.account {
+  margin: 6.4rem auto;
+}
+.account h1 {
+  margin-bottom: 3.4rem;
+}
+.account .edit, .account .delete {
+  text-decoration: underline;
+}
+.account .delete {
+  color: #CB2D2D;
+}
+.account .profil {
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 0 2.2rem 0;
+}
+.account .profil__tab {
+  width: auto;
+}
+.account .profil__tab .change-avatar {
+  color: #A6A6A6;
+  text-decoration: underline;
+  margin-top: 0.3rem;
+}
+.account .profil__tab .update-profil {
+  min-width: 320px;
+}
+.account .profil__tab .update-profil p.title {
+  font-size: 16px;
+  margin-bottom: 1.85rem;
 }
 
 /*# sourceMappingURL=main.css.map */

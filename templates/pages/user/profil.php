@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <table>
+        <table class="books-list">
             <thead>
             <tr>
                 <th>Photo</th>
