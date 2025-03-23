@@ -5,22 +5,23 @@
  * true / false - Nécessite d'être connecté ou non à l'application.
  */
 
+const AUTH_CONTROLLER = "App\Controller\AuthController";
 const USER_CONTROLLER = "App\Controller\UserController";
 const BOOK_CONTROLLER = "App\Controller\BookController";
 
 return [
-    // Connexion & Inscription
+    // Routes d'authentification de l'application
     'app.registration' => [
         'path' => '/registration',
-        'callable' => [USER_CONTROLLER, 'registration'],
+        'callable' => [AUTH_CONTROLLER, 'registration'],
     ],
     'app.login' => [
         'path' => '/login',
-        'callable' => [USER_CONTROLLER, 'login'],
+        'callable' => [AUTH_CONTROLLER, 'login'],
     ],
     'app.logout' => [
         'path' => '/logout',
-        'callable' => [USER_CONTROLLER, 'logout'],
+        'callable' => [AUTH_CONTROLLER, 'logout'],
         'need_connection' => true
     ],
 
@@ -45,5 +46,10 @@ return [
     'app.profil' => [
         'path' => '/profil/{id}',
         'callable' => [USER_CONTROLLER, 'showUser'],
+    ],
+    'app.account' => [
+        'path' => '/account',
+        'callable' => [USER_CONTROLLER, 'showAccount'],
+        'need_connection' => true
     ]
 ];
