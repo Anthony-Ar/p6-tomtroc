@@ -93,7 +93,13 @@
                             } ?></td>
                         <td class="actions">
                             <a href="#" class="edit">Éditer</a>
-                            <a href="#" class="delete">Supprimer</a>
+                            <a
+                                href="/book/delete/<?= $book['id'] ?>"
+                                class="delete"
+                                <?= \App\Util\ConfirmAction::askConfirmation('Confirmez la suppression du livre') ?>
+                            >
+                                Supprimer
+                            </a>
                         </td>
                     </tr>
                     <?php
