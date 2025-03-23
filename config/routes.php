@@ -25,11 +25,13 @@ return [
         'need_connection' => true
     ],
 
-    // Pages
+    // Accueil
     'app.home' => [
         'path' => '/',
         'callable' => ['App\Controller\HomeController', 'showHome'],
     ],
+
+    // Livres
     'app.add-book' => [
         'path' => '/add-book',
         'callable' => [BOOK_CONTROLLER, 'addBook'],
@@ -43,6 +45,13 @@ return [
         'path' => '/books',
         'callable' => [BOOK_CONTROLLER, 'showBooks'],
     ],
+    'app.delete-book' => [
+        'path' => '/book/delete/{id}',
+        'callable' => [BOOK_CONTROLLER, 'deleteBook'],
+        'need_connection' => true
+    ],
+
+    // Utilisateurs
     'app.profil' => [
         'path' => '/profil/{id}',
         'callable' => [USER_CONTROLLER, 'showUser'],
@@ -51,5 +60,6 @@ return [
         'path' => '/account',
         'callable' => [USER_CONTROLLER, 'showAccount'],
         'need_connection' => true
-    ]
+    ],
+
 ];

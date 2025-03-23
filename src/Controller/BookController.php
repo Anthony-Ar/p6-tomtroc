@@ -6,8 +6,10 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Exception\BookNotFoundException;
+use App\Exception\UnauthorizedActionException;
 use App\Framework\Exception\ViewNotFoundException;
 use App\Repository\BookRepository;
+use App\Service\SessionManager;
 
 class BookController extends MainController
 {
@@ -77,5 +79,38 @@ class BookController extends MainController
                 'testVar' => 'test'
             ]
         );
+    }
+
+    /**
+     * Suppression d'un livre existant
+     * @param int $id
+     * @return void
+     * @throws BookNotFoundException
+     * @throws UnauthorizedActionException
+     */
+    public function deleteBook(int $id) : void
+    {
+        $bookRepository = new BookRepository();
+        $book = $bookRepository->findOne($id);
+
+        if (!$book) {
+            throw new BookNotFoundException('Impossible de trouver le livre correspondant.');
+        }
+
+        if ($book['ownerId'] !== SessionManager::get('user')['id']) {
+            throw new UnauthorizedActionException('Impossible de supprimer ce livre.');
+        }
+
+        $name = $book['title'];
+
+        $bookRepository->delete($id);
+
+        $this->addMessage(
+            'success',
+            'Livre supprimé !',
+            sprintf('Le livre %s à été supprimé avec succès.', $name)
+        );
+
+        $this->locate('/account');
     }
 }
