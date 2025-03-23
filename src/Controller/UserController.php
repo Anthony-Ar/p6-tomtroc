@@ -38,6 +38,12 @@ class UserController extends MainController
         );
     }
 
+    /**
+     * Affichage du profil privé de l'utilisateur
+     * @return void
+     * @throws UserNotFoundException
+     * @throws ViewNotFoundException
+     */
     public function showAccount() : void
     {
         $user = new UserRepository()->findOne(SessionManager::get('user')['id']);
