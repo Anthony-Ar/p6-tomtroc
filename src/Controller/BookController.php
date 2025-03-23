@@ -5,18 +5,47 @@ declare(strict_types = 1);
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Exception\BookNotFoundException;
 use App\Framework\Exception\ViewNotFoundException;
 use App\Repository\BookRepository;
 
 class BookController extends MainController
 {
     /**
-     * Affiche la page "Nos livres à l'échange"
+     * Affiche les détails d'un livre
+     * @return void
+     * @throws ViewNotFoundException
+     * @throws BookNotFoundException
+     */
+    public function showBook(int $id)
+    {
+        $book = new BookRepository()->findOne($id);
+
+        if (!$book) {
+            throw new BookNotFoundException('Impossible de trouver le livre correspondant.');
+        }
+
+        $this->render($book['title'], 'pages/book/book', ['book' => $book]);
+    }
+
+    /**
+     * Affiche la page "Nos livres à l'échange",
+     * qui contient tous les livres disponibles à l'échange
      * @return void
      * @throws ViewNotFoundException
      */
-    public function showBooks() {
-        $this->render('Nos livres à l\'échange', 'pages/book/books');
+    public function showBooks() : void
+    {
+        $books = new BookRepository();
+
+        if ($this->isSubmit('search')) {
+            $data = $this->getRequest()->getParsedBody();
+            $books = $books->findBy(['title', $data['search']], false);
+        } else {
+            $books = $books->findAll('createdAt ASC');
+        }
+
+        $this->render('Nos livres à l\'échange', 'pages/book/books', ['books' => $books]);
     }
 
     /**

@@ -41,7 +41,7 @@
                 foreach ($books as $book) { ?>
                     <tr class="enlarge-link">
                         <td><img src="<?= $book['cover'] ?>" alt="<?= $book['title'] ?>"></td>
-                        <td><a href="#"><?= $book['title'] ?></a></td>
+                        <td><a href="/books/<?= $book['id'] ?>"><?= $book['title'] ?></a></td>
                         <td><?= $book['author'] ?></td>
                         <td class="description">
                             <?= \App\Util\TextTruncator::truncate($book['description']) ?>

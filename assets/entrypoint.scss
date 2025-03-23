@@ -9,6 +9,7 @@
 @use 'components/button';
 @use 'components/card';
 @use 'components/notice-message';
+@use 'components/label';
 
 @use 'layouts/header';
 @use 'layouts/footer';
@@ -17,5 +18,6 @@
 @use 'pages/error';
 @use 'pages/home';
 @use 'pages/books';
+@use 'pages/book';
 @use 'pages/registration';
 @use 'pages/profil';

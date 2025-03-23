@@ -34,6 +34,10 @@ return [
         'callable' => [BOOK_CONTROLLER, 'addBook'],
         'need_connection' => true
     ],
+    'app.show-book' => [
+        'path' => '/books/{id}',
+        'callable' => [BOOK_CONTROLLER, 'showBook'],
+    ],
     'app.show-books' => [
         'path' => '/books',
         'callable' => [BOOK_CONTROLLER, 'showBooks'],

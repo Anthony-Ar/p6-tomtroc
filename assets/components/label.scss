@@ -1,0 +1,17 @@
+.label {
+  width: fit-content;
+  padding: .2rem .9rem;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 8.88px;
+  font-weight: 500;
+  color: #FFFFFF;
+
+  &.label-red {
+    background-color: #C56D6D;
+  }
+
+  &.label-green {
+    background-color: #6DC5A1;
+  }
+}
