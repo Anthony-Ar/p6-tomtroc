@@ -33,12 +33,12 @@
 
                                 <div class="input_group">
                                     <label for="password">Mot de passe</label>
-                                    <input type="password" id="password" name="password" required>
+                                    <input type="password" id="password" name="password">
                                 </div>
 
                                 <div class="input_group">
-                                    <label for="pseudo">Pseudo</label>
-                                    <input type="text" id="pseudo" name="pseudo"
+                                    <label for="username">Pseudo</label>
+                                    <input type="text" id="username" name="username"
                                            value="<?= \App\Service\SessionManager::get('user')['username'] ?>" required>
                                 </div>
                             </div>

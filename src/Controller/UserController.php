@@ -53,6 +53,26 @@ class UserController extends MainController
             throw new UserNotFoundException('Impossible de trouver les informations liées à votre compte utilisateur.');
         }
 
+        if ($this->isSubmit('update-profil-submit')) {
+            $data = $this->getRequest()->getParsedBody();
+            $update = $this->updateUser($data, $user);
+
+            if ($update) {
+                SessionManager::set('user', [
+                    'id' => $user['id'],
+                    'username' => $data['username'],
+                    'email' => $data['email'],
+                ]);
+                $this->addMessage('success', 'Profil modifié', 'Modification de votre profil effectué avec succès.');
+            } else {
+                $this->addMessage(
+                    'error',
+                    'Une erreur est survenue',
+                    'Une erreur est survenue lors de la modification de votre profil'
+                );
+            }
+        }
+
         $this->render(
             'Mon compte',
             'pages/user/account',
@@ -61,5 +81,24 @@ class UserController extends MainController
                 'books' => $books,
             ]
         );
+    }
+
+    /**
+     * Modifie le profil d'un utilisateur
+     * @param array $data
+     * @param array $user
+     * @return bool
+     */
+    private function updateUser(array $data, array $user) : bool
+    {
+        unset($data['update-profil-submit']);
+
+        if (!empty(trim($data['password']))) {
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        } else {
+            unset($data['password']);
+        }
+
+        return new UserRepository()->update($data, ['id', $user['id']]);
     }
 }
