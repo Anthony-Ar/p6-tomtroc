@@ -71,6 +71,9 @@ class UserController extends MainController
                     'Une erreur est survenue lors de la modification de votre profil'
                 );
             }
+
+            $this->locate('/account');
+            return;
         }
 
         $this->render(
