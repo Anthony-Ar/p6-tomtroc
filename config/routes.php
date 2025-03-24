@@ -32,9 +32,9 @@ return [
     ],
 
     // Livres
-    'app.add-book' => [
-        'path' => '/add-book',
-        'callable' => [BOOK_CONTROLLER, 'addBook'],
+    'app.update-book' => [
+        'path' => '/book/update/{id}',
+        'callable' => [BOOK_CONTROLLER, 'updateBook'],
         'need_connection' => true
     ],
     'app.show-book' => [

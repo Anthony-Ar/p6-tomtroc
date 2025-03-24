@@ -92,7 +92,7 @@
                                 </div><?php
                             } ?></td>
                         <td class="actions">
-                            <a href="#" class="edit">Éditer</a>
+                            <a href="/book/update/<?= $book['id'] ?>" class="edit">Éditer</a>
                             <a
                                 href="/book/delete/<?= $book['id'] ?>"
                                 class="delete"
