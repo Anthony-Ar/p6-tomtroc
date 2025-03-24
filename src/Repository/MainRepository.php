@@ -66,6 +66,29 @@ abstract class MainRepository extends Sql
     }
 
     /**
+     * Modifie une entrée dans une table
+     * @param array $data
+     * @param array $where
+     * @return bool
+     */
+    public function update(array $data, array $where) : bool
+    {
+        $fields = [];
+        foreach($data as $field => $value) {
+            $fields[] = $field . ' = :' . $field;
+        }
+
+        $sql = "UPDATE {$this->table} SET " . implode(', ', $fields) . " WHERE {$where[0]} = {$where[1]}";
+        $query = Sql::bdd()->prepare($sql);
+
+        foreach($data as $field => $value) {
+            $query->bindValue(':' . $field, $value);
+        }
+
+        return $query->execute();
+    }
+
+    /**
      * Supprime une entrée
      * @param int $id
      * @return void
