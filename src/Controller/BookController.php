@@ -95,14 +95,12 @@ class BookController extends MainController
             throw new UnauthorizedActionException('Impossible de supprimer ce livre.');
         }
 
-        $name = $book['title'];
-
         $bookRepository->delete($id);
 
         $this->addMessage(
             'success',
             'Livre supprimé !',
-            sprintf('Le livre %s à été supprimé avec succès.', $name)
+            sprintf('Le livre %s à été supprimé avec succès.', $book['title'])
         );
 
         $this->locate('/account');
