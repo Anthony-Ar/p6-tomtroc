@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Controller;
 
-use App\Entity\Book;
 use App\Exception\BookNotFoundException;
 use App\Exception\UnauthorizedActionException;
 use App\Framework\Exception\ViewNotFoundException;
@@ -15,11 +14,12 @@ class BookController extends MainController
 {
     /**
      * Affiche les détails d'un livre
+     * @param int $id
      * @return void
-     * @throws ViewNotFoundException
      * @throws BookNotFoundException
+     * @throws ViewNotFoundException
      */
-    public function showBook(int $id)
+    public function showBook(int $id) : void
     {
         $book = new BookRepository()->findOne($id);
 
@@ -54,7 +54,6 @@ class BookController extends MainController
      * Modifie un livre de la base de données
      * @param int $id
      * @return void
-     * @throws BookNotFoundException
      * @throws UnauthorizedActionException
      * @throws ViewNotFoundException
      */
@@ -62,11 +61,7 @@ class BookController extends MainController
     {
         $book = new BookRepository()->findOne($id);
 
-        if (!$book) {
-            throw new BookNotFoundException('Impossible de trouver le livre correspondant.');
-        }
-
-        if ($book['ownerId'] !== SessionManager::get('user')['id']) {
+        if (!$book || $book['ownerId'] !== SessionManager::get('user')['id']) {
             throw new UnauthorizedActionException('Impossible de modifier ce livre.');
         }
 
@@ -89,7 +84,6 @@ class BookController extends MainController
      * Suppression d'un livre existant
      * @param int $id
      * @return void
-     * @throws BookNotFoundException
      * @throws UnauthorizedActionException
      */
     public function deleteBook(int $id) : void
@@ -97,11 +91,7 @@ class BookController extends MainController
         $bookRepository = new BookRepository();
         $book = $bookRepository->findOne($id);
 
-        if (!$book) {
-            throw new BookNotFoundException('Impossible de trouver le livre correspondant.');
-        }
-
-        if ($book['ownerId'] !== SessionManager::get('user')['id']) {
+        if (!$book || $book['ownerId'] !== SessionManager::get('user')['id']) {
             throw new UnauthorizedActionException('Impossible de supprimer ce livre.');
         }
 
