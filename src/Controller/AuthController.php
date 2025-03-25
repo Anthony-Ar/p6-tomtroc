@@ -31,7 +31,7 @@ class AuthController extends MainController
             return;
         }
 
-        $this->render('Inscription', 'pages/user/registration');
+        $this->render('Inscription', 'pages/auth/registration');
     }
 
     /**
@@ -57,7 +57,7 @@ class AuthController extends MainController
             return;
         }
 
-        $this->render('Inscription', 'pages/user/login');
+        $this->render('Inscription', 'pages/auth/login');
     }
 
     /**
