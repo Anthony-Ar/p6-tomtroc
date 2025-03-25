@@ -1,0 +1,46 @@
+@use '../utils/variables' as var;
+
+.account {
+  margin: 6.4rem auto;
+
+  h1 {
+    margin-bottom: 3.4rem;
+  }
+
+  .edit, .delete {
+    text-decoration: underline;
+  }
+
+  .delete {
+    color: #CB2D2D;
+  }
+
+  .profil {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0 2.2rem 0;
+
+    &__tab {
+      width: auto;
+
+      .change-avatar {
+        color: var.$text-gray;
+        text-decoration: underline;
+        margin-top: .3rem;
+
+        &:hover {
+          cursor: pointer;
+          font-weight: bold;
+        }
+      }
+
+      .update-profil {
+        min-width: 320px;
+
+        p.title {
+          font-size: 16px;
+          margin-bottom: 1.85rem;
+        }
+      }
+    }
+  }
+}

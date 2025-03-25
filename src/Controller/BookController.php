@@ -4,20 +4,22 @@ declare(strict_types = 1);
 
 namespace App\Controller;
 
-use App\Entity\Book;
 use App\Exception\BookNotFoundException;
+use App\Exception\UnauthorizedActionException;
 use App\Framework\Exception\ViewNotFoundException;
 use App\Repository\BookRepository;
+use App\Service\SessionManager;
 
 class BookController extends MainController
 {
     /**
      * Affiche les détails d'un livre
+     * @param int $id
      * @return void
-     * @throws ViewNotFoundException
      * @throws BookNotFoundException
+     * @throws ViewNotFoundException
      */
-    public function showBook(int $id)
+    public function showBook(int $id) : void
     {
         $book = new BookRepository()->findOne($id);
 
@@ -49,33 +51,58 @@ class BookController extends MainController
     }
 
     /**
-     * Ajoute un nouveau livre à la base de données
+     * Modifie un livre de la base de données
+     * @param int $id
      * @return void
+     * @throws UnauthorizedActionException
      * @throws ViewNotFoundException
      */
-    public function addBook() : void
+    public function updateBook(int $id) : void
     {
+        $book = new BookRepository()->findOne($id);
+
+        if (!$book || $book['ownerId'] !== SessionManager::get('user')['id']) {
+            throw new UnauthorizedActionException('Impossible de modifier ce livre.');
+        }
+
         if ($this->isSubmit('add-book-submit')) {
             $data = $this->getRequest()->getParsedBody();
 
-            $book = new Book();
-            $book->author = $data['author'];
-            $book->title = $data['title'];
-            $book->description = $data['description'];
-            $book->cover = $data['cover'];
-            $book->state = boolval($data['state']);
-            // Ajouter ownerId en fonction de l'utilisateur connecté.
-            $book->ownerId = 0;
 
-            new BookRepository()->addBook($book);
         }
 
         $this->render(
-            'Ajouter un livre à ma bibliothèque',
-            'pages/book/add_book',
+            'Modifier un livre',
+            'pages/book/update_book',
             [
-                'testVar' => 'test'
+                'book' => $book,
             ]
         );
+    }
+
+    /**
+     * Suppression d'un livre existant
+     * @param int $id
+     * @return void
+     * @throws UnauthorizedActionException
+     */
+    public function deleteBook(int $id) : void
+    {
+        $bookRepository = new BookRepository();
+        $book = $bookRepository->findOne($id);
+
+        if (!$book || $book['ownerId'] !== SessionManager::get('user')['id']) {
+            throw new UnauthorizedActionException('Impossible de supprimer ce livre.');
+        }
+
+        $bookRepository->delete($id);
+
+        $this->addMessage(
+            'success',
+            'Livre supprimé !',
+            sprintf('Le livre %s à été supprimé avec succès.', $book['title'])
+        );
+
+        $this->locate('/account');
     }
 }

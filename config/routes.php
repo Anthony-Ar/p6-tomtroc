@@ -5,33 +5,36 @@
  * true / false - Nécessite d'être connecté ou non à l'application.
  */
 
+const AUTH_CONTROLLER = "App\Controller\AuthController";
 const USER_CONTROLLER = "App\Controller\UserController";
 const BOOK_CONTROLLER = "App\Controller\BookController";
 
 return [
-    // Connexion & Inscription
+    // Routes d'authentification de l'application
     'app.registration' => [
         'path' => '/registration',
-        'callable' => [USER_CONTROLLER, 'registration'],
+        'callable' => [AUTH_CONTROLLER, 'registration'],
     ],
     'app.login' => [
         'path' => '/login',
-        'callable' => [USER_CONTROLLER, 'login'],
+        'callable' => [AUTH_CONTROLLER, 'login'],
     ],
     'app.logout' => [
         'path' => '/logout',
-        'callable' => [USER_CONTROLLER, 'logout'],
+        'callable' => [AUTH_CONTROLLER, 'logout'],
         'need_connection' => true
     ],
 
-    // Pages
+    // Accueil
     'app.home' => [
         'path' => '/',
         'callable' => ['App\Controller\HomeController', 'showHome'],
     ],
-    'app.add-book' => [
-        'path' => '/add-book',
-        'callable' => [BOOK_CONTROLLER, 'addBook'],
+
+    // Livres
+    'app.update-book' => [
+        'path' => '/book/update/{id}',
+        'callable' => [BOOK_CONTROLLER, 'updateBook'],
         'need_connection' => true
     ],
     'app.show-book' => [
@@ -42,8 +45,21 @@ return [
         'path' => '/books',
         'callable' => [BOOK_CONTROLLER, 'showBooks'],
     ],
+    'app.delete-book' => [
+        'path' => '/book/delete/{id}',
+        'callable' => [BOOK_CONTROLLER, 'deleteBook'],
+        'need_connection' => true
+    ],
+
+    // Utilisateurs
     'app.profil' => [
         'path' => '/profil/{id}',
         'callable' => [USER_CONTROLLER, 'showUser'],
-    ]
+    ],
+    'app.account' => [
+        'path' => '/account',
+        'callable' => [USER_CONTROLLER, 'showAccount'],
+        'need_connection' => true
+    ],
+
 ];

@@ -1,0 +1,42 @@
+@use '../utils/variables' as var;
+
+section.add_book {
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    background: #FFF;
+    border-radius: 20px;
+    padding: 4rem;
+
+    .form_group {
+      justify-self: center;
+      width: 100%;
+
+      .preview {
+        max-width: 488px;
+        max-height: 488px;
+        object-fit: cover;
+      }
+
+      .form-label {
+        color: var.$text-gray;
+      }
+
+      .right-label {
+        text-align: right;
+        text-decoration: underline;
+        color: var.$dark-gray;
+        font-size: 12px;
+        max-width: 488px;
+
+        &:hover {
+          cursor: pointer;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -12,70 +12,6 @@ use App\Service\SessionManager;
 class UserController extends MainController
 {
     /**
-     * Création d'un compte utilisateur
-     * @return void
-     * @throws ViewNotFoundException
-     */
-    public function registration() : void
-    {
-        if ($this->isSubmit('registration-submit')) {
-            $data = $this->getRequest()->getParsedBody();
-
-            $user = new User($data);
-            $newUser = new UserRepository()->addUser($user);
-            $user->id = $newUser;
-
-            SessionManager::login($user);
-
-            $this->locate('/');
-            return;
-        }
-
-        $this->render('Inscription', 'pages/user/registration');
-    }
-
-    /**
-     * Connexion utilisateur
-     * @return void
-     * @throws ViewNotFoundException
-     */
-    public function login() : void
-    {
-        if ($this->isSubmit('login-submit')) {
-            $data = $this->getRequest()->getParsedBody();
-
-            $user = new UserRepository()->findOneByEmail(htmlspecialchars($data['email']));
-
-            if (!$user || !password_verify($data['password'], $user->password)) {
-                $this->invalidCredentials();
-                return;
-            }
-
-            SessionManager::login($user);
-
-            $this->locate('/');
-            return;
-        }
-
-        $this->render('Inscription', 'pages/user/login');
-    }
-
-    /**
-     * Déconnexion utilisateur
-     * @return void
-     */
-    public function logout() : void
-    {
-        SessionManager::remove('user');
-        $this->addMessage(
-            'success',
-            '',
-            'Vous êtes déconnecté de l\'application TomTroc.'
-        );
-        $this->locate('/');
-    }
-
-    /**
      * Affiche le profil d'un utilisateur
      * @param int $id
      * @return void
@@ -103,18 +39,69 @@ class UserController extends MainController
     }
 
     /**
-     * Utilitaire message de connexion invalidCredentials
-     * Le système affiche le même message pour un email ou un mot de passe invalide
-     * afin de ne pas donner d'informations non nécessaires
+     * Affichage du profil privé de l'utilisateur
      * @return void
+     * @throws UserNotFoundException
+     * @throws ViewNotFoundException
      */
-    private function invalidCredentials() : void
+    public function showAccount() : void
     {
-        $this->addMessage(
-            'error',
-            'Connexion impossible',
-            'Vos identifiants sont invalides.'
+        $user = new UserRepository()->findOne(SessionManager::get('user')['id']);
+        $books = new BookRepository()->findBy(['ownerId', $user['id']], true, 'createdAt DESC');
+
+        if (!$user) {
+            throw new UserNotFoundException('Impossible de trouver les informations liées à votre compte utilisateur.');
+        }
+
+        if ($this->isSubmit('update-profil-submit')) {
+            $data = $this->getRequest()->getParsedBody();
+            $update = $this->updateUser($data, $user);
+
+            if ($update) {
+                SessionManager::set('user', [
+                    'id' => $user['id'],
+                    'username' => $data['username'],
+                    'email' => $data['email'],
+                ]);
+                $this->addMessage('success', 'Profil modifié', 'Modification de votre profil effectué avec succès.');
+            } else {
+                $this->addMessage(
+                    'error',
+                    'Une erreur est survenue',
+                    'Une erreur est survenue lors de la modification de votre profil'
+                );
+            }
+
+            $this->locate('/account');
+            return;
+        }
+
+        $this->render(
+            'Mon compte',
+            'pages/user/account',
+            [
+                'user' => $user,
+                'books' => $books,
+            ]
         );
-        $this->locate('/login');
+    }
+
+    /**
+     * Modifie le profil d'un utilisateur
+     * @param array $data
+     * @param array $user
+     * @return bool
+     */
+    private function updateUser(array $data, array $user) : bool
+    {
+        unset($data['update-profil-submit']);
+
+        if (!empty(trim($data['password']))) {
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        } else {
+            unset($data['password']);
+        }
+
+        return new UserRepository()->update($data, ['id', $user['id']]);
     }
 }

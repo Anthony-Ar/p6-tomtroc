@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon">
+                        <a href="/account" class="icon">
                             <i class="fa-regular fa-user"></i>
                             Mon compte
                         </a>
