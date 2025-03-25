@@ -1,0 +1,50 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+.messenger {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  &__panel {
+    padding-top: 3.9rem;
+    max-width: 308px;
+
+    h1 {
+      margin-bottom: 1.9rem;
+    }
+
+    .discussion {
+      @include mix.flex('center', 'center');
+      padding: 1.28rem 2.28rem;
+      gap: .8rem;
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      &__detail {
+        &--infos {
+          @include mix.flex('space-between', 'center');
+        }
+
+        .description {
+          margin-top: .5rem;
+          font-size: 12px;
+          white-space: nowrap;
+          color: var.$text-gray;
+        }
+      }
+
+      &.active, &:hover {
+        background-color: #FFFFFF;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
