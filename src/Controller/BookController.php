@@ -51,32 +51,36 @@ class BookController extends MainController
     }
 
     /**
-     * Ajoute un nouveau livre à la base de données
+     * Modifie un livre de la base de données
+     * @param int $id
      * @return void
+     * @throws BookNotFoundException
+     * @throws UnauthorizedActionException
      * @throws ViewNotFoundException
      */
-    public function addBook() : void
+    public function updateBook(int $id) : void
     {
+        $book = new BookRepository()->findOne($id);
+
+        if (!$book) {
+            throw new BookNotFoundException('Impossible de trouver le livre correspondant.');
+        }
+
+        if ($book['ownerId'] !== SessionManager::get('user')['id']) {
+            throw new UnauthorizedActionException('Impossible de modifier ce livre.');
+        }
+
         if ($this->isSubmit('add-book-submit')) {
             $data = $this->getRequest()->getParsedBody();
 
-            $book = new Book();
-            $book->author = $data['author'];
-            $book->title = $data['title'];
-            $book->description = $data['description'];
-            $book->cover = $data['cover'];
-            $book->state = boolval($data['state']);
-            // Ajouter ownerId en fonction de l'utilisateur connecté.
-            $book->ownerId = 0;
 
-            new BookRepository()->addBook($book);
         }
 
         $this->render(
-            'Ajouter un livre à ma bibliothèque',
-            'pages/book/add_book',
+            'Modifier un livre',
+            'pages/book/update_book',
             [
-                'testVar' => 'test'
+                'book' => $book,
             ]
         );
     }

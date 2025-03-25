@@ -416,6 +416,11 @@ section.add_book form .form_group {
   justify-self: center;
   width: 100%;
 }
+section.add_book form .form_group .preview {
+  max-width: 488px;
+  max-height: 488px;
+  object-fit: cover;
+}
 
 .error_content {
   margin-top: 2rem;

@@ -12,6 +12,12 @@ section.add_book {
     .form_group {
       justify-self: center;
       width: 100%;
+
+      .preview {
+        max-width: 488px;
+        max-height: 488px;
+        object-fit: cover;
+      }
     }
   }
 }
