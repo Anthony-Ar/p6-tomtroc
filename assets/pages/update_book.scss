@@ -30,6 +30,7 @@ section.add_book {
         text-decoration: underline;
         color: var.$dark-gray;
         font-size: 12px;
+        max-width: 488px;
 
         &:hover {
           cursor: pointer;

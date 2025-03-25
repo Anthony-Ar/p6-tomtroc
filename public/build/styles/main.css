@@ -429,6 +429,7 @@ section.add_book form .form_group .right-label {
   text-decoration: underline;
   color: #292929;
   font-size: 12px;
+  max-width: 488px;
 }
 section.add_book form .form_group .right-label:hover {
   cursor: pointer;
