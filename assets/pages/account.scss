@@ -26,6 +26,11 @@
         color: var.$text-gray;
         text-decoration: underline;
         margin-top: .3rem;
+
+        &:hover {
+          cursor: pointer;
+          font-weight: bold;
+        }
       }
 
       .update-profil {

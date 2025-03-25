@@ -1,27 +1,29 @@
 <main class="container">
     <section class="account">
         <h1>Mon compte</h1>
-        <div class="profil">
-            <div class="profil__tab">
-                <div class="profil__tab--wrapper">
-                    <img src="<?= $user['avatar'] ?>" alt="Avatar de <?= $user['username'] ?>"/>
-                    <a href="#" class="change-avatar">modifier</a>
-                    <hr/>
-                    <div class="profil__tab--infos">
-                        <p class="username"><?= $user['username'] ?></p>
-                        <p class="inscription">Membre depuis <?= \App\Util\DateHelper::yearSinceDate(
-                                $user['inscriptionDate']
-                            ) ?> an(s)</p>
+        <form method="POST">
+            <div class="profil">
 
-                        <p class="books">Bibliothèque</p>
-                        <p><i class="fa-solid fa-book"></i> <?= count($books) ?> livre(s)</p>
+                <div class="profil__tab">
+                    <div class="profil__tab--wrapper">
+                        <img id="preview" src="<?= $user['avatar'] ?>" alt="Avatar de <?= $user['username'] ?>"/>
+                        <label for="avatar" class="change-avatar">modifier</label>
+                        <input class="sr-only" type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"/>
+                        <hr/>
+                        <div class="profil__tab--infos">
+                            <p class="username"><?= $user['username'] ?></p>
+                            <p class="inscription">Membre depuis <?= \App\Util\DateHelper::yearSinceDate(
+                                    $user['inscriptionDate']
+                                ) ?> an(s)</p>
+
+                            <p class="books">Bibliothèque</p>
+                            <p><i class="fa-solid fa-book"></i> <?= count($books) ?> livre(s)</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="profil__tab">
-                <div class="profil__tab--wrapper">
-                    <form method="POST">
+                <div class="profil__tab">
+                    <div class="profil__tab--wrapper">
                         <div class="update-profil">
                             <p class="title">Vos informations personnelles</p>
                             <div class="form_group">
@@ -47,10 +49,12 @@
                                     class="btn btn-reverse">Enregistrer
                             </button>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
+
             </div>
-        </div>
+        </form>
 
         <table class="books-list">
             <thead>
@@ -94,8 +98,8 @@
                         <td class="actions">
                             <a href="/book/update/<?= $book['id'] ?>" class="edit">Éditer</a>
                             <a
-                                href="/book/delete/<?= $book['id'] ?>"
-                                class="delete"
+                                    href="/book/delete/<?= $book['id'] ?>"
+                                    class="delete"
                                 <?= \App\Util\ConfirmAction::askConfirmation('Confirmez la suppression du livre') ?>
                             >
                                 Supprimer
@@ -109,3 +113,4 @@
         </table>
     </section>
 </main>
+<script src="/build/scripts/imagePreview.js" data-input="avatar"></script>

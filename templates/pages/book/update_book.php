@@ -12,9 +12,10 @@
             <form method="POST">
                 <div class="form_group">
                     <div class="input_group">
-                        <label for="cover">Photo</label>
+                        <p class="form-label">Photo</p>
                         <img id="preview" class="preview" src="<?= $book['cover'] ?>" alt="<?= $book['title'] ?>">
-                        <input type="file" id="cover" name="cover" accept="image/png, image/jpeg"/>
+                        <label class="right-label" for="cover">Modifier la photo</label>
+                        <input class="sr-only" type="file" id="cover" name="cover" accept="image/png, image/jpeg"/>
                     </div>
                 </div>
 

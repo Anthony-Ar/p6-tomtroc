@@ -1,3 +1,5 @@
+@use '../utils/variables' as var;
+
 section.add_book {
   form {
     display: grid;
@@ -17,6 +19,22 @@ section.add_book {
         max-width: 488px;
         max-height: 488px;
         object-fit: cover;
+      }
+
+      .form-label {
+        color: var.$text-gray;
+      }
+
+      .right-label {
+        text-align: right;
+        text-decoration: underline;
+        color: var.$dark-gray;
+        font-size: 12px;
+
+        &:hover {
+          cursor: pointer;
+          font-weight: bold;
+        }
       }
     }
   }
