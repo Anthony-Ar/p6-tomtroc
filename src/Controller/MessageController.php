@@ -42,7 +42,7 @@ class MessageController extends MainController
             ];
 
             new MessageRepository()->send(new Message($message));
-            $this->locate('/messagerie');
+            $this->locate('/messagerie/' . $id);
             return;
         }
 
