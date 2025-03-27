@@ -70,7 +70,7 @@ return [
         'need_connection' => true
     ],
     'app.messages' => [
-        'path' => '/messages/{id}',
+        'path' => '/messagerie/{id}',
         'callable' => [MESSAGE_CONTROLLER, 'showMessages'],
         'need_connection' => true
     ]

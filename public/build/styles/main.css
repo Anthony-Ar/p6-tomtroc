@@ -801,6 +801,9 @@ table.books-list tr:nth-child(odd) {
   justify-content: space-between;
   align-items: center;
 }
+.messenger__panel .discussion__detail--infos a, .messenger__panel .discussion__detail--infos a:visited {
+  color: #292929;
+}
 .messenger__panel .discussion__detail--infos .date {
   font-size: 12px;
 }
@@ -846,6 +849,7 @@ table.books-list tr:nth-child(odd) {
   justify-content: flex-end;
   font-size: 12px;
   margin-top: 2.1rem;
+  overflow: auto;
 }
 .messenger__discussion--messages .date {
   color: #A6A6A6;

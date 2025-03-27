@@ -31,6 +31,10 @@
         &--infos {
           @include mix.flex('space-between', 'center');
 
+          a, a:visited {
+            color: var.$dark-gray;
+          }
+
           .date {
             font-size: 12px;
           }
@@ -84,6 +88,8 @@
       justify-content: flex-end;
       font-size: 12px;
       margin-top: 2.1rem;
+      overflow: auto;
+
 
       .date {
         color: var.$text-gray;
