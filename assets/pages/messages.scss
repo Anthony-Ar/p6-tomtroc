@@ -14,7 +14,7 @@
     }
 
     .discussion {
-      @include mix.flex('center', 'center');
+      @include mix.flex(false, 'center');
       padding: 1.28rem 2.28rem;
       gap: .8rem;
 
@@ -26,8 +26,14 @@
       }
 
       &__detail {
+        width: 100%;
+
         &--infos {
           @include mix.flex('space-between', 'center');
+
+          .date {
+            font-size: 12px;
+          }
         }
 
         .description {
@@ -85,6 +91,7 @@
 
       .message-to {
         max-width: 65%;
+        width: fit-content;
         margin-top: 2.1rem;
         margin-left: auto;
 
@@ -102,6 +109,7 @@
 
       .message-from {
         max-width: 65%;
+        width: fit-content;
         margin-top: 2.1rem;
 
         .infos {

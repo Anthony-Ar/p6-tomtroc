@@ -783,7 +783,6 @@ table.books-list tr:nth-child(odd) {
 }
 .messenger__panel .discussion {
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 1.28rem 2.28rem;
   gap: 0.8rem;
@@ -794,10 +793,16 @@ table.books-list tr:nth-child(odd) {
   border-radius: 50%;
   object-fit: cover;
 }
+.messenger__panel .discussion__detail {
+  width: 100%;
+}
 .messenger__panel .discussion__detail--infos {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.messenger__panel .discussion__detail--infos .date {
+  font-size: 12px;
 }
 .messenger__panel .discussion__detail .description {
   margin-top: 0.5rem;
@@ -847,6 +852,7 @@ table.books-list tr:nth-child(odd) {
 }
 .messenger__discussion--messages .message-to {
   max-width: 65%;
+  width: fit-content;
   margin-top: 2.1rem;
   margin-left: auto;
 }
@@ -861,6 +867,7 @@ table.books-list tr:nth-child(odd) {
 }
 .messenger__discussion--messages .message-from {
   max-width: 65%;
+  width: fit-content;
   margin-top: 2.1rem;
 }
 .messenger__discussion--messages .message-from .infos {
