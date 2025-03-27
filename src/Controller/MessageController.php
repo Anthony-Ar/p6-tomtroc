@@ -8,7 +8,6 @@ use App\Framework\Exception\ViewNotFoundException;
 use App\Repository\MessageRepository;
 use App\Repository\UserRepository;
 use App\Service\SessionManager;
-use DateTime;
 
 class MessageController extends MainController
 {
