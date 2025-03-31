@@ -21,4 +21,17 @@ class DateHelper
 
         return $date->diff(new DateTime())->y;
     }
+
+    public static function showHoursOrDays(DateTime|string $date) : string
+    {
+        if (!$date instanceof DateTime) {
+            $date = new DateTime($date);
+        }
+
+        if($date->diff(new DateTime())->d >= 1){
+            return $date->format('d.m');
+        }
+
+        return $date->format('H:i');
+    }
 }

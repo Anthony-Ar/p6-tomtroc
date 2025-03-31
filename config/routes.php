@@ -8,6 +8,7 @@
 const AUTH_CONTROLLER = "App\Controller\AuthController";
 const USER_CONTROLLER = "App\Controller\UserController";
 const BOOK_CONTROLLER = "App\Controller\BookController";
+const MESSAGE_CONTROLLER = "App\Controller\MessageController";
 
 return [
     // Routes d'authentification de l'application
@@ -62,4 +63,15 @@ return [
         'need_connection' => true
     ],
 
+    // Messagerie
+    'app.messenger' => [
+        'path' => '/messagerie',
+        'callable' => [MESSAGE_CONTROLLER, 'showMessenger'],
+        'need_connection' => true
+    ],
+    'app.messages' => [
+        'path' => '/messagerie/{id}',
+        'callable' => [MESSAGE_CONTROLLER, 'showMessages'],
+        'need_connection' => true
+    ]
 ];

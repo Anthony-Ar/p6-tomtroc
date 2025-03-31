@@ -1,0 +1,165 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mix;
+
+.messenger {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  &__panel {
+    padding-top: 3.9rem;
+    max-width: 308px;
+
+    h1 {
+      margin-bottom: 1.9rem;
+    }
+
+    .discussion {
+      @include mix.flex(false, 'center');
+      padding: 1.28rem 2.28rem;
+      gap: .8rem;
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      &__detail {
+        width: 100%;
+
+        &--infos {
+          @include mix.flex('space-between', 'center');
+
+          a, a:visited {
+            color: var.$dark-gray;
+          }
+
+          .date {
+            font-size: 12px;
+          }
+        }
+
+        .description {
+          margin-top: .5rem;
+          font-size: 12px;
+          white-space: nowrap;
+          color: var.$text-gray;
+        }
+      }
+
+      &.active, &:hover {
+        background-color: #FFFFFF;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__discussion {
+    @include mix.flex('space-between');
+    flex-direction: column;
+    padding: 2.5rem 3.15rem;
+    background-color: var.$header-background;
+    height: calc(100vh - 211px);
+
+    &--head {
+      @include mix.flex('false', 'center');
+      gap: .8rem;
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      p {
+        font-weight: 600;
+      }
+    }
+
+    &--messages {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: 12px;
+      margin-top: 2.1rem;
+      overflow: auto;
+
+
+      .date {
+        color: var.$text-gray;
+      }
+
+      .message-to {
+        max-width: 65%;
+        width: fit-content;
+        margin-top: 2.1rem;
+        margin-left: auto;
+
+        .date {
+          text-align: right;
+          margin-bottom: .35rem;
+        }
+
+        .message {
+          padding: .7rem 1.2rem;
+          background-color: #EDF2F6;
+          border-radius: 3px;
+        }
+      }
+
+      .message-from {
+        max-width: 65%;
+        width: fit-content;
+        margin-top: 2.1rem;
+
+        .infos {
+          @include mix.flex('false', 'center');
+          gap: .35rem;
+          margin-bottom: .35rem;
+
+          img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+
+        .message {
+          padding: .7rem 1.2rem;
+          background-color: #FFFFFF;
+          border-radius: 3px;
+        }
+      }
+    }
+
+    &--sending {
+      margin-top: 7rem;
+
+      form {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 1.5rem;
+
+        input[type=text] {
+          background-color: #FFFFFF;
+        }
+
+        .input_group {
+          margin-bottom: 0;
+        }
+
+        .btn {
+          width: 100%;
+          padding: 1rem 2.45rem;
+        }
+      }
+    }
+  }
+}

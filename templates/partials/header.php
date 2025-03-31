@@ -18,7 +18,7 @@
                 <ul>
                     <?php if(\App\Service\ConnectionChecker::isConnected()) { ?>
                     <li>
-                        <a href="#" class="icon">
+                        <a href="/messagerie" class="icon">
                             <i class="fa-regular fa-comment"></i>
                             Messagerie
                             <span class="badge">1</span>
