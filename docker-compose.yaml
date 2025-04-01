@@ -40,6 +40,8 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: test
       MYSQL_ROOT_PASSWORD: test
+      PMA_HOST: mysql
+      PMA_PORT: 3306
 
 volumes:
   persistent:
