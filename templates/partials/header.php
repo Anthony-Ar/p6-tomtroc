@@ -21,7 +21,6 @@
                         <a href="/messagerie" class="icon">
                             <i class="fa-regular fa-comment"></i>
                             Messagerie
-                            <span class="badge">1</span>
                         </a>
                     </li>
                     <li>

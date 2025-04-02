@@ -18,6 +18,6 @@
             <a href="/profil/<?= $book['ownerId'] ?>"><?= $book['username'] ?></a>
         </div>
 
-        <a href="#" class="btn w-100 justify-content-center">Envoyer un message</a>
+        <a href="/messagerie/<?= $book['ownerId'] ?>" class="btn w-100 justify-content-center">Envoyer un message</a>
     </div>
 </section>
