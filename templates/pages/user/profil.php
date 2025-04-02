@@ -13,7 +13,7 @@
                     <p class="books">Bibliothèque</p>
                     <p><i class="fa-solid fa-book"></i> <?= count($books) ?> livre(s)</p>
                 </div>
-                <a class="btn btn-reverse mt-3-2" href="#">
+                <a class="btn btn-reverse mt-3-2" href="/messagerie/<?= $user['id'] ?>">
                     Écrire un message
                 </a>
             </div>

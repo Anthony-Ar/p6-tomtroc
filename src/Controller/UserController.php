@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Exception\FileUploadError;
 use App\Exception\UserNotFoundException;
 use App\Framework\Exception\ViewNotFoundException;
 use App\Repository\BookRepository;
 use App\Repository\UserRepository;
 use App\Service\SessionManager;
+use App\Util\FileUploader;
 
 class UserController extends MainController
 {
@@ -43,6 +45,7 @@ class UserController extends MainController
      * @return void
      * @throws UserNotFoundException
      * @throws ViewNotFoundException
+     * @throws FileUploadError
      */
     public function showAccount() : void
     {
@@ -55,7 +58,7 @@ class UserController extends MainController
 
         if ($this->isSubmit('update-profil-submit')) {
             $data = $this->getRequest()->getParsedBody();
-            $update = $this->updateUser($data, $user);
+            $update = $this->processUpdateUser($data, $user);
 
             if ($update) {
                 SessionManager::set('user', [
@@ -91,8 +94,9 @@ class UserController extends MainController
      * @param array $data
      * @param array $user
      * @return bool
+     * @throws FileUploadError
      */
-    private function updateUser(array $data, array $user) : bool
+    private function processUpdateUser(array $data, array $user) : bool
     {
         unset($data['update-profil-submit']);
 
@@ -100,6 +104,12 @@ class UserController extends MainController
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
         } else {
             unset($data['password']);
+        }
+
+        if (isset($_FILES['avatar']) && $_FILES["avatar"]["size"] !== 0) {
+            $data['avatar'] = FileUploader::upload($_FILES["avatar"], 100);
+        } else {
+            unset($data['avatar']);
         }
 
         return new UserRepository()->update($data, ['id', $user['id']]);

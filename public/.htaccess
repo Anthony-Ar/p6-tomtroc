@@ -5,4 +5,5 @@ Options +FollowSymlinks
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !=/index.php
 RewriteCond %{REQUEST_URI} !build/
+RewriteCond %{REQUEST_URI} !uploads/
 RewriteRule .* /index.php

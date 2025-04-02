@@ -1,7 +1,7 @@
 <main class="container">
     <section class="account">
         <h1>Mon compte</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="profil">
 
                 <div class="profil__tab">

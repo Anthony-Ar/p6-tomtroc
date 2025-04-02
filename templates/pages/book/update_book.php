@@ -9,7 +9,7 @@
 
         <section class="add_book">
             <h1>Modifier les informations</h1>
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <div class="form_group">
                     <div class="input_group">
                         <p class="form-label">Photo</p>
@@ -39,7 +39,7 @@
                             <option value="1" <?php !$book['state'] ? print_r("selected") : null ?>>Indisponible</option>
                         </select>
                     </div>
-                    <button type="submit" id="add-book-submit" name="add-book-submit" class="btn">Valider</button>
+                    <button type="submit" id="update-book-submit" name="update-book-submit" class="btn">Valider</button>
                 </div>
             </form>
         </section>
