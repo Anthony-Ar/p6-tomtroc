@@ -38,7 +38,7 @@ class FileUploader
             $newFileName = uniqid("img_", true) . "." . $fileExtension;
             $destinationPath = self::UPLOAD_DIR . $newFileName;
 
-            if (move_uploaded_file($file["tmp_name"], $destinationPath)) {
+            if (move_uploaded_file($file["tmp_name"], "../public" . $destinationPath)) {
                 return $destinationPath;
             } else {
                 throw new FileUploadError('Impossible d\'upload le fichier');
