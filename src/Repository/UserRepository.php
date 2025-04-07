@@ -22,7 +22,7 @@ class UserRepository extends MainRepository
     public function addUser(User $user) : bool|string
     {
         $hashPassword = password_hash($user->password, PASSWORD_DEFAULT);
-        $date = new DateTime();
+        $date = new DateTime()->format('Y-m-d H:i:s');
 
         $request = "
             INSERT INTO {$this->table} (username, email, password, inscriptionDate)
